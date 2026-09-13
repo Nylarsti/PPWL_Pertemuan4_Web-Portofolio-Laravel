@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About - Portfolio Nayla')
+@section('title', 'About - My Portfolio')
 
 @section('content')
     <section class="page-header">

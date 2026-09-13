@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Projects - Portfolio Nayla')
+@section('title', 'Projects - My Portfolio')
 
 @php
     $daftarProjects = [
