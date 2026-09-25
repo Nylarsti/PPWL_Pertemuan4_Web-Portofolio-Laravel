@@ -294,3 +294,43 @@ main {
     font-size: 0.9rem;
     margin-top: 3rem;
 }
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+ 
+.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+}
+ 
+
+/* Tombol Edit / Delete di halaman detail */
+.project-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+ 
+.btn-edit {
+    background-color: #2563eb;
+    color: #fff;
+}
+ 
+.btn-edit:hover {
+    background-color: #1d4ed8;
+}
+ 
+.btn-delete {
+    background-color: #dc2626;
+    color: #fff;
+}
+ 
+.btn-delete:hover {
+    background-color: #b91c1c;
+}

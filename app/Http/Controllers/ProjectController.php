@@ -30,14 +30,15 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:200',
-            'description' => 'required',
+            'title' => 'required|min:5|max:200',
+            'description' => 'required|min:10',
             'tech' => 'nullable|max:150',
         ]);
-
+ 
         Project::create($request->only(['title', 'description', 'tech']));
-
-        return redirect()->route('projects');
+ 
+        return redirect()->route('projects')
+            ->with('success', 'Project berhasil ditambahkan.');
     }
 
     /**
@@ -63,7 +64,17 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|min:5|max:200',
+            'description' => 'required|min:10',
+            'tech' => 'nullable|max:150',
+        ]);
+ 
+        $project = Project::findOrFail($id);
+        $project->update($validatedData);
+ 
+        return redirect()->route('projects')
+            ->with('success', 'Project berhasil diperbarui.');
     }
 
     /**
@@ -71,6 +82,10 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $project = Project::findOrFail($id);
+        $project->delete();
+
+        return redirect()->route('projects')
+            ->with('success', 'Project berhasil dihapus.');
     }
 }
